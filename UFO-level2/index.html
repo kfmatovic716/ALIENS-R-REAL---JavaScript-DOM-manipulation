@@ -3,7 +3,7 @@
 
 <head>
   <meta charset="utf-8">
-  <title>UFO Finder</title>
+  <title>Wake up, Sheeple!</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootswatch/3.3.7/superhero/bootstrap.min.css">
   <link href="https://fonts.googleapis.com/css?family=Aldrich" rel="stylesheet">
@@ -33,18 +33,27 @@
         <div class="col-md-2">
           <aside class="filters">
             <div class="panel panel-default">
-              <div class="panel-heading">Filter Search</div>
+              <div class="panel-heading">Find UFOs</div>
               <div class="panel-body">
                 <form>
                   <div class="form-group">
                     <ul class="list-group" id="filters">
                       <li class="filter list-group-item">
-                        <label for="date">Enter a Date</label>
-                        <input class="form-control" id="datetime" type="text" placeholder="1/11/2011">
+                        <select id='filter-choices' onchange=selectOption(this)>
+                          <option value='date'>Date</option>
+                          <option value='city'>City</option>
+                          <option value='state'>State</option>
+                          <option value='country'>Country</option>
+                          <option value='shape'>Shape</option>
+                        </select>
+                      </li>
+                      <li class="filter list-group-item">
+                      <div id='filter-item'>Select Category</div>
+                        <input id="useroption" class="form-control"  type="text" placeholder="1/13/2010">
                       </li>
                     </ul>
                   </div>
-                  <button id="filter-btn" type="button" class="btn btn-default">Filter Table</button>
+                  <button id="filter-btn" type="button" class="btn btn-default">Start Searching</button>
                 </form>
               </div>
             </div>

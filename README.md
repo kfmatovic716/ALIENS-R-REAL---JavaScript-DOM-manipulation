@@ -1,9 +1,9 @@
-# ALIENS-R-REAL -> JavaScript & DOM Manipulation
+# ALIENS R REAL -> JavaScript & DOM Manipulation
 
 ### Objectives
 <ul>
     <li>To build a user-interactive website that will show UFO Sightings data</li>
-    <li>To utilize JavaScript code in adding event listeners in the HTM/CSS page to create user-responsive buttons and form(s) that will filter the output data</li>
+    <li>To utilize JavaScript code in adding event listeners in the HTML/CSS page to create user-responsive buttons and form(s) that will filter the output data</li>
 </ul>
 
 #### Part 1: Automatic Table & Date Search

@@ -26,23 +26,82 @@ data.forEach(buildTable);
 // Prints data and user gets a glimpse of what data looks like
 console.log(data);
 
-// Event listener for the form button when user fills it out
-var filterButton = d3.select('#filter-btn');
+// Event listeners
+// Selected when a filter option is selected & when a filter button is clicked
+var listOption = d3.select("#filter-item");
+var filterButton = d3.select('filter-btn');
+
+// Executes when a filter option has been selected
+// Modifies the text of filter-item id (line 51 in index.html) depensing on the filter option selected
+// 
+function selectOption(item) {
+console.log(item)
+  var selectedOption = item.value;
+
+    if(selectedOption == "date")
+    {
+      listOption.text("Enter a date");
+      document.getElementById('useroption');
+    }
+    else if(selectedOption == 'city')
+    {
+      listOption.text("Enter a City");
+      document.getElementById('useroption')
+    }
+    else if(selectedOption == "state")
+    {
+      listOption.text("Enter a State");
+      document.getElementById('useroption');
+    }
+    else if(selectedOption == "country")
+    {
+      listOption.text("Enter a Country");
+      document.getElementById('useroption');
+    }
+    else if(selectedOption == "shape")
+    {
+      listOption.text("Enter a Shape")
+      document.getElementById('useroption');
+    };
+
+};
 
 function handleClick() {
     // Prevents page from refreshing
     d3.event.preventDefault();
   
-    // Select the input element and get the raw HTML node &
-    // Get the value property of the input element
-    var date = d3.select('#datetime').property('value');
-    
-    console.log(date);
+    // Select the input element and get the raw HTML node 
+    var userInputElement= d3.selectAll('.form-control');
 
-    // Check to see if a date was entered and filter the data using that date then
-    // Rebuild the table with filtered data
-    // Otherwise, will build the original data table
-    var filteredData = data.filter(rowItem => rowItem.datetime === date);
+    // Get the value of user input and transform to lowercase since UFO data has it all in lowercase
+    var inputValue = userInputElement.property('value').toLowerCase()
+    
+    console.log(inputValue);
+
+    const element = document.getElementById("filter-choices");
+    var selectedOption = element.option[itemIndex].value;
+
+    if(selectedOption == "date")
+    {
+        var filteredData = data.filter(i => i.date === inputValue);
+    }
+    else if(selectedOption == 'city')
+    {
+        var filteredData = data.filter(i => i.city === inputValue);
+    }
+    else if(selectedOption == "state")
+    {
+        var filteredData = data.filter(i => i.state === inputValue); 
+    }
+    else if(selectedOption == "country")
+    {
+        var filteredData = data.filter(i => i.country === inputValue);
+    }
+    else if(selectedOption == "shape")
+    {
+        var filteredData = data.filter(i => i.shape === inputValue); 
+    }
+
     console.log(filteredData);
     
     tbody.html("");
@@ -52,6 +111,7 @@ function handleClick() {
 // event handler of the form button
 // when filter button is clicked, then handleClick function is called
 filterButton.on('click', handleClick);
+
 
 console.log(data);
 
